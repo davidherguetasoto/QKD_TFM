@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="IM_output_generation_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="IM_output_generation_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="7.087 ns"></ZoomStartTime>
+      <ZoomEndTime time="187.388 ns"></ZoomEndTime>
+      <Cursor1Time time="96.987 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="141"></NameColumnWidth>
+      <ValueColumnWidth column_width="72"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="7" />
+   <wvobject fp_name="/IM_output_generation_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/IM_output_generation_tb/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/IM_output_generation_tb/temp_in" type="logic">
+      <obj_property name="ElementShortName">temp_in</obj_property>
+      <obj_property name="ObjectShortName">temp_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/IM_output_generation_tb/ph_mod" type="logic">
+      <obj_property name="ElementShortName">ph_mod</obj_property>
+      <obj_property name="ObjectShortName">ph_mod</obj_property>
+   </wvobject>
+   <wvobject fp_name="/IM_output_generation_tb/im_out" type="array">
+      <obj_property name="ElementShortName">im_out[1:0]</obj_property>
+      <obj_property name="ObjectShortName">im_out[1:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/IM_output_generation_tb/inst_IM_output_generation/present_state" type="other">
+      <obj_property name="ElementShortName">present_state</obj_property>
+      <obj_property name="ObjectShortName">present_state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/IM_output_generation_tb/inst_IM_output_generation/next_state" type="other">
+      <obj_property name="ElementShortName">next_state</obj_property>
+      <obj_property name="ObjectShortName">next_state</obj_property>
+   </wvobject>
+</wave_config>

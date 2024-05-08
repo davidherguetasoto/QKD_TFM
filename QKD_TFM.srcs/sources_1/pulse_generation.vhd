@@ -31,7 +31,7 @@ begin
     end if;
 end process;
 
-state_udate:process(present_state)
+state_update:process(present_state)
 begin
     case present_state is 
         when Idle => 

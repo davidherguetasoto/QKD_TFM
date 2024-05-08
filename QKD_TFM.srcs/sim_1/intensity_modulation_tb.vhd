@@ -10,7 +10,9 @@ architecture testbench of intensity_modulation_tb is
 component intensity_modulation is 
     generic(
         Tearly:integer;
-        Tlate:integer);
+        Tlate:integer;
+        Tphase:integer;
+        Tint:integer);
     Port ( clk : in STD_LOGIC;
            reset : in STD_LOGIC;
            sync_pulse : in STD_LOGIC;
@@ -30,7 +32,9 @@ begin
 inst_int_mod: intensity_modulation
     generic map(
         Tlate => 6,
-        Tearly => 8)
+        Tearly => 8,
+        Tphase => 4, 
+        Tint => 2)
     port map(
         clk => clk,
         reset => reset,

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="IM_temporization_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="IM_temporization_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="600.001 ns"></ZoomEndTime>
+      <Cursor1Time time="260.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="136"></NameColumnWidth>
+      <ValueColumnWidth column_width="72"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="14" />
+   <wave_markers>
+      <marker time="330000" label="" />
+   </wave_markers>
+   <wvobject fp_name="/IM_temporization_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/IM_temporization_tb/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/IM_temporization_tb/out_temp" type="logic">
+      <obj_property name="ElementShortName">out_temp</obj_property>
+      <obj_property name="ObjectShortName">out_temp</obj_property>
+   </wvobject>
+   <wvobject fp_name="/IM_temporization_tb/ph_mod" type="logic">
+      <obj_property name="ElementShortName">ph_mod</obj_property>
+      <obj_property name="ObjectShortName">ph_mod</obj_property>
+   </wvobject>
+   <wvobject fp_name="/IM_temporization_tb/trigger" type="logic">
+      <obj_property name="ElementShortName">trigger</obj_property>
+      <obj_property name="ObjectShortName">trigger</obj_property>
+   </wvobject>
+   <wvobject fp_name="/IM_temporization_tb/late" type="logic">
+      <obj_property name="ElementShortName">late</obj_property>
+      <obj_property name="ObjectShortName">late</obj_property>
+   </wvobject>
+   <wvobject fp_name="/IM_temporization_tb/early" type="logic">
+      <obj_property name="ElementShortName">early</obj_property>
+      <obj_property name="ObjectShortName">early</obj_property>
+   </wvobject>
+   <wvobject fp_name="/IM_temporization_tb/phase" type="logic">
+      <obj_property name="ElementShortName">phase</obj_property>
+      <obj_property name="ObjectShortName">phase</obj_property>
+   </wvobject>
+   <wvobject fp_name="/IM_temporization_tb/inst_IM_temporization/present_state" type="other">
+      <obj_property name="ElementShortName">present_state</obj_property>
+      <obj_property name="ObjectShortName">present_state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/IM_temporization_tb/inst_IM_temporization/next_state" type="other">
+      <obj_property name="ElementShortName">next_state</obj_property>
+      <obj_property name="ObjectShortName">next_state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/IM_temporization_tb/inst_IM_temporization/timer" type="other">
+      <obj_property name="ElementShortName">timer</obj_property>
+      <obj_property name="ObjectShortName">timer</obj_property>
+   </wvobject>
+   <wvobject fp_name="/IM_temporization_tb/inst_IM_temporization/late_reg" type="logic">
+      <obj_property name="ElementShortName">late_reg</obj_property>
+      <obj_property name="ObjectShortName">late_reg</obj_property>
+   </wvobject>
+   <wvobject fp_name="/IM_temporization_tb/inst_IM_temporization/early_reg" type="logic">
+      <obj_property name="ElementShortName">early_reg</obj_property>
+      <obj_property name="ObjectShortName">early_reg</obj_property>
+   </wvobject>
+   <wvobject fp_name="/IM_temporization_tb/inst_IM_temporization/phase_reg" type="logic">
+      <obj_property name="ElementShortName">phase_reg</obj_property>
+      <obj_property name="ObjectShortName">phase_reg</obj_property>
+   </wvobject>
+</wave_config>
