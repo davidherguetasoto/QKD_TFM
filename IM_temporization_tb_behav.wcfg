@@ -12,15 +12,15 @@
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
       <ZoomEndTime time="600.001 ns"></ZoomEndTime>
-      <Cursor1Time time="260.000 ns"></Cursor1Time>
+      <Cursor1Time time="220.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="136"></NameColumnWidth>
+      <NameColumnWidth column_width="131"></NameColumnWidth>
       <ValueColumnWidth column_width="72"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="14" />
+   <WVObjectSize size="15" />
    <wave_markers>
-      <marker time="330000" label="" />
+      <marker time="130000" label="" />
    </wave_markers>
    <wvobject fp_name="/IM_temporization_tb/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
@@ -77,5 +77,9 @@
    <wvobject fp_name="/IM_temporization_tb/inst_IM_temporization/phase_reg" type="logic">
       <obj_property name="ElementShortName">phase_reg</obj_property>
       <obj_property name="ObjectShortName">phase_reg</obj_property>
+   </wvobject>
+   <wvobject fp_name="/IM_temporization_tb/inst_IM_temporization/trigger_reg" type="logic">
+      <obj_property name="ElementShortName">trigger_reg</obj_property>
+      <obj_property name="ObjectShortName">trigger_reg</obj_property>
    </wvobject>
 </wave_config>

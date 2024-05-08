@@ -21,7 +21,7 @@ architecture Behavioral of IM_temporization is
 type state is (Idle, TempLate, TempEarly, TempPhase, IntMod, PhaseMod);
 signal present_state, next_state: state;
 signal timer: integer range 0 to 255;
-signal late_reg, early_reg, phase_reg: std_logic; --Registers for inputs synchronization
+signal late_reg, early_reg, phase_reg, trigger_reg : std_logic; --Registers for inputs synchronization
 
 begin
 
@@ -40,12 +40,12 @@ begin
     end if;
 end process;
 
-state_update:process(present_state, phase_reg, late_reg, early_reg,trigger)
+state_update:process(present_state, phase_reg, late_reg, early_reg,trigger_reg)
 begin 
     case present_state is 
         when Idle => 
             timer<=1;
-            case trigger is 
+            case trigger_reg is 
             when '1' =>
                 if late_reg='1' and early_reg='0' and phase_reg='0' then 
                     next_state<=TempLate;
@@ -69,7 +69,7 @@ begin
             next_state<=PhaseMod;
         when IntMod => 
             timer<=Tint;
-            case trigger is 
+            case trigger_reg is 
             when '1' =>
                 if late_reg='1' and early_reg='0' and phase_reg='0' then 
                     next_state<=TempLate;
@@ -84,7 +84,7 @@ begin
             end case;
         when PhaseMod => 
             timer<=Tphase; 
-            case trigger is 
+            case trigger_reg is 
             when '1' =>
                 if late_reg='1' and early_reg='0' and phase_reg='0' then 
                     next_state<=TempLate;
@@ -130,10 +130,12 @@ begin
         early_reg<='0';
         phase_reg<='0';
         late_reg<='0';
+        trigger_reg<='0';
     elsif rising_edge(clk) then 
         early_reg<=early;
         phase_reg<=phase;
         late_reg<=late;
+        trigger_reg<=trigger;
     end if;
 end process;
 
