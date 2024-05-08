@@ -56,14 +56,14 @@ begin
     sync_pulse<='1';
     wait for Tclk;
     sync_pulse<='0';
-    wait for 5*Tclk;
+    wait for 9*Tclk;
 end process;
 
 reset<='0', '1' after 3*Tclk;
 
 late<='0';
-early<='1';
-phase<='0';
+early<='0';
+phase<='1';
 
 
 

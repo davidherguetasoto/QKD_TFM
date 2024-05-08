@@ -51,7 +51,7 @@ begin
         when others => timer1_trig<='0'; timer2_trig<='0';
         end case;
     when Timer2 => 
-        case sync_pulse is 
+        case sync_pulse_reg is 
         when '1' => timer1_trig<='0'; timer2_trig<='1';
         when others => timer1_trig<='0'; timer2_trig<='0';
         end case;
