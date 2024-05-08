@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 07.05.2024 17:08:46
+-- Create Date: 08.05.2024 12:33:32
 -- Design Name: 
--- Module Name: top - Behavioral
+-- Module Name: IM_output_generation - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,21 +31,17 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity top is
-    Port ( clk : in STD_LOGIC;
+entity IM_output_generation is
+    Port ( temp_in : in STD_LOGIC;
+           ph_mod : in STD_LOGIC;
+           clk : in STD_LOGIC;
            reset : in STD_LOGIC;
-           early : in STD_LOGIC;
-           late : in STD_LOGIC;
-           phase : in STD_LOGIC;
-           pi_rad : in STD_LOGIC;
-           pulse_out : out STD_LOGIC_VECTOR (1 downto 0);
-           im_out : out STD_LOGIC_VECTOR (1 downto 0);
-           pm_out : out STD_LOGIC_VECTOR (1 downto 0));
-end top;
+           im_out : out STD_LOGIC_VECTOR (1 downto 0));
+end IM_output_generation;
 
-architecture Structural of top is
+architecture Behavioral of IM_output_generation is
 
 begin
 
 
-end Structural;
+end Behavioral;

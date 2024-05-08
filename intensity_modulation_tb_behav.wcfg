@@ -11,14 +11,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="1,000.000 ns"></ZoomEndTime>
-      <Cursor1Time time="170.000 ns"></Cursor1Time>
+      <ZoomEndTime time="1,000.001 ns"></ZoomEndTime>
+      <Cursor1Time time="190.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="146"></NameColumnWidth>
+      <NameColumnWidth column_width="141"></NameColumnWidth>
       <ValueColumnWidth column_width="72"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="10" />
+   <WVObjectSize size="13" />
    <wave_markers>
       <marker time="100000" label="" />
    </wave_markers>
@@ -62,5 +62,17 @@
    <wvobject fp_name="/intensity_modulation_tb/inst_int_mod/timer" type="other">
       <obj_property name="ElementShortName">timer</obj_property>
       <obj_property name="ObjectShortName">timer</obj_property>
+   </wvobject>
+   <wvobject fp_name="/intensity_modulation_tb/inst_int_mod/late_reg" type="logic">
+      <obj_property name="ElementShortName">late_reg</obj_property>
+      <obj_property name="ObjectShortName">late_reg</obj_property>
+   </wvobject>
+   <wvobject fp_name="/intensity_modulation_tb/inst_int_mod/early_reg" type="logic">
+      <obj_property name="ElementShortName">early_reg</obj_property>
+      <obj_property name="ObjectShortName">early_reg</obj_property>
+   </wvobject>
+   <wvobject fp_name="/intensity_modulation_tb/inst_int_mod/phase_reg" type="logic">
+      <obj_property name="ElementShortName">phase_reg</obj_property>
+      <obj_property name="ObjectShortName">phase_reg</obj_property>
    </wvobject>
 </wave_config>
