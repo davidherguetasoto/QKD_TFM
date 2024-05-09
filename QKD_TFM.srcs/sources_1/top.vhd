@@ -6,7 +6,8 @@ entity top is
            reset : in STD_LOGIC;   
            early : in STD_LOGIC;   --For leaving the early replica alone in IM
            late : in STD_LOGIC;    --For leaving the late replica alone in IM
-           phase : in STD_LOGIC;   --For phase modulation
+           phase : in STD_LOGIC;   --Active for phase modulation
+           pi_rad : in std_logic;  --If active, pi rad phase difference between replicas
            pulse_out : out STD_LOGIC_VECTOR (1 downto 0);  --Output for the first IM that generates the light pulses
            im_out : out STD_LOGIC_VECTOR (1 downto 0);     --Output for the second IM that modules the intensity of the replicas
            pm_out : out STD_LOGIC_VECTOR (1 downto 0));    --Output for the phase modulator
@@ -44,6 +45,7 @@ component phase_modulation is
            reset : in STD_LOGIC;
            sync_pulse : in STD_LOGIC;
            phase : in STD_LOGIC;
+           pi_rad: in std_logic;
            pm_out : out STD_LOGIC_VECTOR (1 downto 0));
 end component;
 
@@ -90,6 +92,7 @@ port map(
     reset => reset,
     sync_pulse => sync_pulse_in,
     phase => phase,
+    pi_rad => pi_rad,
     pm_out => pm_out);
     
 pulse_out<=sync_pulse_out;

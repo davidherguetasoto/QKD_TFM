@@ -13,13 +13,13 @@ component top is
            early : in STD_LOGIC;
            late : in STD_LOGIC;
            phase : in STD_LOGIC;
-           pi_rad : in STD_LOGIC;
+           pi_rad: in std_logic;
            pulse_out : out STD_LOGIC_VECTOR (1 downto 0);
            im_out : out STD_LOGIC_VECTOR (1 downto 0);
            pm_out : out STD_LOGIC_VECTOR (1 downto 0));
 end component;
 
-signal clk,reset,early,late,phase,pi_rad:std_logic;
+signal clk,reset,early,late,phase, pi_rad:std_logic;
 signal im_out,pm_out,pulse_out: std_logic_vector(1 downto 0);
 
 constant Tclk:time:=10ns;
@@ -51,6 +51,13 @@ reset<='0', '1' after 3*Tclk;
 early<='0';
 late<='0';
 phase<='1';
-pi_rad<='0';
+
+process
+begin
+    pi_rad<='1';
+    wait for 15*Tclk;
+    pi_rad<='0';
+    wait for 15*Tclk;
+end process;
 
 end testbench;

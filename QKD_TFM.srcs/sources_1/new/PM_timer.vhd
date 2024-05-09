@@ -9,6 +9,7 @@ entity PM_timer is
            reset : in STD_LOGIC;
            trigger : in STD_LOGIC;
            phase : in STD_LOGIC;
+           pi_rad: in std_logic;
            timer_out : out STD_LOGIC);
 end PM_timer;
 
@@ -17,7 +18,7 @@ architecture Behavioral of PM_timer is
 type state is (Idle, Timing, OutPulse);
 signal present_state, next_state: state;
 signal timer: integer range 0 to 255;
-signal phase_reg:std_logic; --Register for synchronizing phase input
+signal phase_reg,pi_rad_reg:std_logic; --Register for synchronizing phase input
 
 begin
 
@@ -36,12 +37,12 @@ begin
     end if;
 end process;
 
-state_update:process(present_state, phase_reg,trigger)
+state_update:process(present_state, phase_reg,trigger,pi_rad_reg)
 begin
     case present_state is 
     when Idle => 
         timer<=1;
-        case trigger and phase_reg is 
+        case trigger and phase_reg and pi_rad_reg is 
         when '1' => next_state<=Timing;
         when others => next_state<=Idle;
         end case;
@@ -50,7 +51,7 @@ begin
         next_state<=OutPulse;
     when OutPulse => 
         timer<=Tone_replica;
-        case trigger and phase_reg is 
+        case trigger and phase_reg and pi_rad_reg is 
         when '1' => next_state<=Timing;
         when others => next_state<=Idle;
         end case;
@@ -73,8 +74,10 @@ synchronize_inputs:process(clk,reset)
 begin 
     if reset='0' then 
         phase_reg<='0';
+        pi_rad_reg<='0';
     elsif rising_edge(clk) then 
         phase_reg<=phase;
+        pi_rad_reg<=pi_rad;
     end if;
 end process;
 

@@ -9,6 +9,7 @@ entity phase_modulation is
            reset : in STD_LOGIC;
            sync_pulse : in STD_LOGIC;
            phase : in STD_LOGIC;
+           pi_rad: in std_logic;
            pm_out : out STD_LOGIC_VECTOR (1 downto 0));
 end phase_modulation;
 
@@ -22,6 +23,7 @@ component PM_timer is
            reset : in STD_LOGIC;
            trigger : in STD_LOGIC;
            phase : in STD_LOGIC;
+           pi_rad: in std_logic;
            timer_out : out STD_LOGIC);
 end component;
 
@@ -67,6 +69,7 @@ generate_timers: for i in 0 to 1 generate
             reset => reset,
             trigger => trigger(i),
             phase => phase,
+            pi_rad => pi_rad,
             timer_out => timer_out(i));
 end generate;
 
