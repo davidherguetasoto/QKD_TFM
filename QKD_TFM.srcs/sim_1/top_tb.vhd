@@ -1,35 +1,5 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 07.05.2024 18:12:05
--- Design Name: 
--- Module Name: top_tb - testbench
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
-
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity top_tb is
 --  Port ( );
@@ -37,7 +7,50 @@ end top_tb;
 
 architecture testbench of top_tb is
 
+component top is 
+    Port ( clk : in STD_LOGIC;
+           reset : in STD_LOGIC;
+           early : in STD_LOGIC;
+           late : in STD_LOGIC;
+           phase : in STD_LOGIC;
+           pi_rad : in STD_LOGIC;
+           pulse_out : out STD_LOGIC_VECTOR (1 downto 0);
+           im_out : out STD_LOGIC_VECTOR (1 downto 0);
+           pm_out : out STD_LOGIC_VECTOR (1 downto 0));
+end component;
+
+signal clk,reset,early,late,phase,pi_rad:std_logic;
+signal im_out,pm_out,pulse_out: std_logic_vector(1 downto 0);
+
+constant Tclk:time:=10ns;
+
 begin
 
+inst_top:top 
+port map(
+    clk => clk,
+    reset => reset,
+    early => early,
+    late => late,
+    phase => phase,
+    pi_rad => pi_rad,
+    pulse_out => pulse_out,
+    im_out => im_out,
+    pm_out => pm_out);
+    
+process 
+begin
+    clk<='1';
+    wait for Tclk/2;
+    clk<='0';
+    wait for Tclk/2;
+end process;
+
+reset<='0', '1' after 3*Tclk;
+
+early<='1';
+late<='0';
+phase<='0';
+pi_rad<='0';
 
 end testbench;

@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="top_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="top_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="900.001 ns"></ZoomEndTime>
+      <Cursor1Time time="190.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="190"></NameColumnWidth>
+      <ValueColumnWidth column_width="91"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="11" />
+   <wave_markers>
+      <marker time="110000" label="" />
+   </wave_markers>
+   <wvobject fp_name="/top_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/pulse_out" type="array">
+      <obj_property name="ElementShortName">pulse_out[1:0]</obj_property>
+      <obj_property name="ObjectShortName">pulse_out[1:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/im_out" type="array">
+      <obj_property name="ElementShortName">im_out[1:0]</obj_property>
+      <obj_property name="ObjectShortName">im_out[1:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/pm_out" type="array">
+      <obj_property name="ElementShortName">pm_out[1:0]</obj_property>
+      <obj_property name="ObjectShortName">pm_out[1:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/early" type="logic">
+      <obj_property name="ElementShortName">early</obj_property>
+      <obj_property name="ObjectShortName">early</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/late" type="logic">
+      <obj_property name="ElementShortName">late</obj_property>
+      <obj_property name="ObjectShortName">late</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/phase" type="logic">
+      <obj_property name="ElementShortName">phase</obj_property>
+      <obj_property name="ObjectShortName">phase</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/pi_rad" type="logic">
+      <obj_property name="ElementShortName">pi_rad</obj_property>
+      <obj_property name="ObjectShortName">pi_rad</obj_property>
+   </wvobject>
+   <wvobject fp_name="group255" type="group">
+      <obj_property name="label">pulse_generator</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/top_tb/inst_top/inst_pulse_generation/pulse_out" type="array">
+         <obj_property name="ElementShortName">pulse_out[1:0]</obj_property>
+         <obj_property name="ObjectShortName">pulse_out[1:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/top_tb/inst_top/inst_pulse_generation/present_state" type="other">
+         <obj_property name="ElementShortName">present_state</obj_property>
+         <obj_property name="ObjectShortName">present_state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/top_tb/inst_top/inst_pulse_generation/next_state" type="other">
+         <obj_property name="ElementShortName">next_state</obj_property>
+         <obj_property name="ObjectShortName">next_state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/top_tb/inst_top/inst_pulse_generation/timer" type="other">
+         <obj_property name="ElementShortName">timer</obj_property>
+         <obj_property name="ObjectShortName">timer</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group257" type="group">
+      <obj_property name="label">intensity_modulation</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/top_tb/inst_top/inst_intensity_modulation/sync_pulse" type="logic">
+         <obj_property name="ElementShortName">sync_pulse</obj_property>
+         <obj_property name="ObjectShortName">sync_pulse</obj_property>
+      </wvobject>
+      <wvobject fp_name="/top_tb/inst_top/inst_intensity_modulation/im_out" type="array">
+         <obj_property name="ElementShortName">im_out[1:0]</obj_property>
+         <obj_property name="ObjectShortName">im_out[1:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="group264" type="group">
+         <obj_property name="label">timer_select</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="/top_tb/inst_top/inst_intensity_modulation/inst_timer_select/sync_pulse_reg" type="logic">
+            <obj_property name="ElementShortName">sync_pulse_reg</obj_property>
+            <obj_property name="ObjectShortName">sync_pulse_reg</obj_property>
+         </wvobject>
+         <wvobject fp_name="/top_tb/inst_top/inst_intensity_modulation/inst_timer_select/timer1_trig" type="logic">
+            <obj_property name="ElementShortName">timer1_trig</obj_property>
+            <obj_property name="ObjectShortName">timer1_trig</obj_property>
+         </wvobject>
+         <wvobject fp_name="/top_tb/inst_top/inst_intensity_modulation/inst_timer_select/timer2_trig" type="logic">
+            <obj_property name="ElementShortName">timer2_trig</obj_property>
+            <obj_property name="ObjectShortName">timer2_trig</obj_property>
+         </wvobject>
+         <wvobject fp_name="/top_tb/inst_top/inst_intensity_modulation/inst_timer_select/present_state" type="other">
+            <obj_property name="ElementShortName">present_state</obj_property>
+            <obj_property name="ObjectShortName">present_state</obj_property>
+         </wvobject>
+         <wvobject fp_name="/top_tb/inst_top/inst_intensity_modulation/inst_timer_select/next_state" type="other">
+            <obj_property name="ElementShortName">next_state</obj_property>
+            <obj_property name="ObjectShortName">next_state</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="group266" type="group">
+         <obj_property name="label">timer1</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="/top_tb/inst_top/inst_intensity_modulation/\timer_generator(0)\/inst_IM_temporization/trigger" type="logic">
+            <obj_property name="ElementShortName">trigger</obj_property>
+            <obj_property name="ObjectShortName">trigger</obj_property>
+         </wvobject>
+         <wvobject fp_name="/top_tb/inst_top/inst_intensity_modulation/\timer_generator(0)\/inst_IM_temporization/early_reg" type="logic">
+            <obj_property name="ElementShortName">early_reg</obj_property>
+            <obj_property name="ObjectShortName">early_reg</obj_property>
+         </wvobject>
+         <wvobject fp_name="/top_tb/inst_top/inst_intensity_modulation/\timer_generator(0)\/inst_IM_temporization/phase_reg" type="logic">
+            <obj_property name="ElementShortName">phase_reg</obj_property>
+            <obj_property name="ObjectShortName">phase_reg</obj_property>
+         </wvobject>
+         <wvobject fp_name="/top_tb/inst_top/inst_intensity_modulation/\timer_generator(0)\/inst_IM_temporization/late" type="logic">
+            <obj_property name="ElementShortName">late</obj_property>
+            <obj_property name="ObjectShortName">late</obj_property>
+         </wvobject>
+         <wvobject fp_name="/top_tb/inst_top/inst_intensity_modulation/\timer_generator(0)\/inst_IM_temporization/early" type="logic">
+            <obj_property name="ElementShortName">early</obj_property>
+            <obj_property name="ObjectShortName">early</obj_property>
+         </wvobject>
+         <wvobject fp_name="/top_tb/inst_top/inst_intensity_modulation/\timer_generator(0)\/inst_IM_temporization/phase" type="logic">
+            <obj_property name="ElementShortName">phase</obj_property>
+            <obj_property name="ObjectShortName">phase</obj_property>
+         </wvobject>
+         <wvobject fp_name="group273" type="group">
+            <obj_property name="label">input_regs</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject fp_name="/top_tb/inst_top/inst_intensity_modulation/\timer_generator(0)\/inst_IM_temporization/late_reg" type="logic">
+               <obj_property name="ElementShortName">late_reg</obj_property>
+               <obj_property name="ObjectShortName">late_reg</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject fp_name="/top_tb/inst_top/inst_intensity_modulation/\timer_generator(0)\/inst_IM_temporization/present_state" type="other">
+            <obj_property name="ElementShortName">present_state</obj_property>
+            <obj_property name="ObjectShortName">present_state</obj_property>
+         </wvobject>
+         <wvobject fp_name="/top_tb/inst_top/inst_intensity_modulation/\timer_generator(0)\/inst_IM_temporization/next_state" type="other">
+            <obj_property name="ElementShortName">next_state</obj_property>
+            <obj_property name="ObjectShortName">next_state</obj_property>
+         </wvobject>
+         <wvobject fp_name="/top_tb/inst_top/inst_intensity_modulation/\timer_generator(0)\/inst_IM_temporization/ph_mod" type="logic">
+            <obj_property name="ElementShortName">ph_mod</obj_property>
+            <obj_property name="ObjectShortName">ph_mod</obj_property>
+         </wvobject>
+         <wvobject fp_name="/top_tb/inst_top/inst_intensity_modulation/\timer_generator(0)\/inst_IM_temporization/out_temp" type="logic">
+            <obj_property name="ElementShortName">out_temp</obj_property>
+            <obj_property name="ObjectShortName">out_temp</obj_property>
+         </wvobject>
+         <wvobject fp_name="/top_tb/inst_top/inst_intensity_modulation/\timer_generator(0)\/inst_IM_temporization/timer" type="other">
+            <obj_property name="ElementShortName">timer</obj_property>
+            <obj_property name="ObjectShortName">timer</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="group280" type="group">
+         <obj_property name="label">timer2</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="/top_tb/inst_top/inst_intensity_modulation/\timer_generator(1)\/inst_IM_temporization/trigger" type="logic">
+            <obj_property name="ElementShortName">trigger</obj_property>
+            <obj_property name="ObjectShortName">trigger</obj_property>
+         </wvobject>
+         <wvobject fp_name="/top_tb/inst_top/inst_intensity_modulation/\timer_generator(1)\/inst_IM_temporization/late" type="logic">
+            <obj_property name="ElementShortName">late</obj_property>
+            <obj_property name="ObjectShortName">late</obj_property>
+         </wvobject>
+         <wvobject fp_name="/top_tb/inst_top/inst_intensity_modulation/\timer_generator(1)\/inst_IM_temporization/early" type="logic">
+            <obj_property name="ElementShortName">early</obj_property>
+            <obj_property name="ObjectShortName">early</obj_property>
+         </wvobject>
+         <wvobject fp_name="/top_tb/inst_top/inst_intensity_modulation/\timer_generator(1)\/inst_IM_temporization/phase" type="logic">
+            <obj_property name="ElementShortName">phase</obj_property>
+            <obj_property name="ObjectShortName">phase</obj_property>
+         </wvobject>
+         <wvobject fp_name="/top_tb/inst_top/inst_intensity_modulation/\timer_generator(1)\/inst_IM_temporization/out_temp" type="logic">
+            <obj_property name="ElementShortName">out_temp</obj_property>
+            <obj_property name="ObjectShortName">out_temp</obj_property>
+         </wvobject>
+         <wvobject fp_name="/top_tb/inst_top/inst_intensity_modulation/\timer_generator(1)\/inst_IM_temporization/ph_mod" type="logic">
+            <obj_property name="ElementShortName">ph_mod</obj_property>
+            <obj_property name="ObjectShortName">ph_mod</obj_property>
+         </wvobject>
+         <wvobject fp_name="/top_tb/inst_top/inst_intensity_modulation/\timer_generator(1)\/inst_IM_temporization/present_state" type="other">
+            <obj_property name="ElementShortName">present_state</obj_property>
+            <obj_property name="ObjectShortName">present_state</obj_property>
+         </wvobject>
+         <wvobject fp_name="/top_tb/inst_top/inst_intensity_modulation/\timer_generator(1)\/inst_IM_temporization/next_state" type="other">
+            <obj_property name="ElementShortName">next_state</obj_property>
+            <obj_property name="ObjectShortName">next_state</obj_property>
+         </wvobject>
+         <wvobject fp_name="/top_tb/inst_top/inst_intensity_modulation/\timer_generator(1)\/inst_IM_temporization/timer" type="other">
+            <obj_property name="ElementShortName">timer</obj_property>
+            <obj_property name="ObjectShortName">timer</obj_property>
+         </wvobject>
+         <wvobject fp_name="group292" type="group">
+            <obj_property name="label">input_regs</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject fp_name="/top_tb/inst_top/inst_intensity_modulation/\timer_generator(1)\/inst_IM_temporization/late_reg" type="logic">
+               <obj_property name="ElementShortName">late_reg</obj_property>
+               <obj_property name="ObjectShortName">late_reg</obj_property>
+            </wvobject>
+            <wvobject fp_name="/top_tb/inst_top/inst_intensity_modulation/\timer_generator(1)\/inst_IM_temporization/early_reg" type="logic">
+               <obj_property name="ElementShortName">early_reg</obj_property>
+               <obj_property name="ObjectShortName">early_reg</obj_property>
+            </wvobject>
+            <wvobject fp_name="/top_tb/inst_top/inst_intensity_modulation/\timer_generator(1)\/inst_IM_temporization/phase_reg" type="logic">
+               <obj_property name="ElementShortName">phase_reg</obj_property>
+               <obj_property name="ObjectShortName">phase_reg</obj_property>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="group294" type="group">
+         <obj_property name="label">output_generation</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="/top_tb/inst_top/inst_intensity_modulation/inst_IM_output_generation/im_out" type="array">
+            <obj_property name="ElementShortName">im_out[1:0]</obj_property>
+            <obj_property name="ObjectShortName">im_out[1:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/top_tb/inst_top/inst_intensity_modulation/inst_IM_output_generation/ph_mod" type="logic">
+            <obj_property name="ElementShortName">ph_mod</obj_property>
+            <obj_property name="ObjectShortName">ph_mod</obj_property>
+         </wvobject>
+         <wvobject fp_name="/top_tb/inst_top/inst_intensity_modulation/inst_IM_output_generation/temp_in" type="logic">
+            <obj_property name="ElementShortName">temp_in</obj_property>
+            <obj_property name="ObjectShortName">temp_in</obj_property>
+         </wvobject>
+      </wvobject>
+   </wvobject>
+</wave_config>

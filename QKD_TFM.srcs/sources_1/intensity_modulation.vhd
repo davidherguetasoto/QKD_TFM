@@ -5,7 +5,7 @@ entity intensity_modulation is
     generic(
         Tearly:integer:=8;
         Tlate:integer:=6;
-        Tphase:integer:=6;
+        Tphase:integer:=4;
         Tint:integer:=2);
     Port ( clk : in STD_LOGIC;
            reset : in STD_LOGIC;
@@ -19,10 +19,10 @@ end intensity_modulation;
 architecture Structural of intensity_modulation is
 
 component IM_temporization is 
-    generic(Tearly:integer:=8;
-            Tlate:integer:=6;
-            Tphase:integer:=4;
-            Tint:integer:=2);
+    generic(Tearly:integer;
+            Tlate:integer;
+            Tphase:integer;
+            Tint:integer);
     Port ( clk : in STD_LOGIC;
            reset : in STD_LOGIC;
            trigger : in STD_LOGIC;
