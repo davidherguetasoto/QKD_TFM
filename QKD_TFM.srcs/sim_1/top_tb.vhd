@@ -48,9 +48,9 @@ end process;
 
 reset<='0', '1' after 3*Tclk;
 
-early<='1';
+early<='0';
 late<='0';
-phase<='0';
+phase<='1';
 pi_rad<='0';
 
 end testbench;

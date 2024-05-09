@@ -13,7 +13,6 @@ architecture Behavioral of timer_select is
 
 type state is (Timer1, Timer2);
 signal present_state, next_state:state;
-signal sync_pulse_reg:std_logic;
 
 begin
 
@@ -42,29 +41,20 @@ begin
     end case;
 end process;
 
-output_update:process(present_state,sync_pulse_reg)
+output_update:process(present_state,sync_pulse)
 begin 
     case present_state is 
     when Timer1 => 
-        case sync_pulse_reg is 
+        case sync_pulse is 
         when '1' => timer1_trig<='1'; timer2_trig<='0';
         when others => timer1_trig<='0'; timer2_trig<='0';
         end case;
     when Timer2 => 
-        case sync_pulse_reg is 
+        case sync_pulse is 
         when '1' => timer1_trig<='0'; timer2_trig<='1';
         when others => timer1_trig<='0'; timer2_trig<='0';
         end case;
     end case;
-end process;
-
-input_register:process(clk,reset)
-begin 
-    if reset='0' then 
-        sync_pulse_reg<='0';
-    elsif rising_edge(clk) then 
-        sync_pulse_reg<=sync_pulse;
-    end if;
 end process;
 
 end Behavioral;
