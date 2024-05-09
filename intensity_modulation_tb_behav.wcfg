@@ -12,16 +12,16 @@
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
       <ZoomEndTime time="600.001 ns"></ZoomEndTime>
-      <Cursor1Time time="600.000 ns"></Cursor1Time>
+      <Cursor1Time time="300.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="238"></NameColumnWidth>
-      <ValueColumnWidth column_width="115"></ValueColumnWidth>
+      <ValueColumnWidth column_width="110"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="12" />
    <wave_markers>
-      <marker time="370000" label="" />
       <marker time="410000" label="" />
+      <marker time="390000" label="" />
    </wave_markers>
    <wvobject fp_name="/intensity_modulation_tb/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
@@ -218,14 +218,6 @@
          <obj_property name="ElementShortName">im_out[1:0]</obj_property>
          <obj_property name="ObjectShortName">im_out[1:0]</obj_property>
          <obj_property name="Radix">BINARYRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/intensity_modulation_tb/inst_int_mod/inst_IM_output_generation/present_state" type="other">
-         <obj_property name="ElementShortName">present_state</obj_property>
-         <obj_property name="ObjectShortName">present_state</obj_property>
-      </wvobject>
-      <wvobject fp_name="/intensity_modulation_tb/inst_int_mod/inst_IM_output_generation/next_state" type="other">
-         <obj_property name="ElementShortName">next_state</obj_property>
-         <obj_property name="ObjectShortName">next_state</obj_property>
       </wvobject>
       <wvobject fp_name="/intensity_modulation_tb/inst_int_mod/temp_in" type="logic">
          <obj_property name="ElementShortName">temp_in</obj_property>

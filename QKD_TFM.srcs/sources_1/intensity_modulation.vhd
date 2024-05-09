@@ -36,8 +36,6 @@ end component;
 component IM_output_generation is
     Port ( temp_in : in STD_LOGIC;
            ph_mod : in STD_LOGIC;
-           clk : in STD_LOGIC;
-           reset : in STD_LOGIC;
            im_out : out STD_LOGIC_VECTOR (1 downto 0));
 end component;
 
@@ -69,15 +67,13 @@ inst_IM_output_generation: IM_output_generation
 port map(
     temp_in => temp_in,
     ph_mod => ph_mod,
-    clk => clk,
-    reset => reset, 
     im_out => im_out);
     
 timer_generator: for i in 0 to 1 generate 
     inst_IM_temporization:IM_temporization
     generic map(
-        Tearly => Tearly-1,
-        Tlate => Tlate-1,
+        Tearly => Tearly,
+        Tlate => Tlate,
         Tphase => Tphase,
         Tint => Tint)
     port map(
