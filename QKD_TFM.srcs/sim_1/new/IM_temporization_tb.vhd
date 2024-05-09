@@ -1,46 +1,46 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity IM_temporization_tb is
+entity IM_timer_tb is
 --  Port ( );
-end IM_temporization_tb;
+end IM_timer_tb;
 
-architecture testbench of IM_temporization_tb is
+architecture testbench of IM_timer_tb is
 
-component IM_temporization is 
+component IM_timer is 
     generic(Tearly:integer:=8;
             Tlate:integer:=6;
-            Tphase:integer:=4;
-            Tint:integer:=2);
+            Ttwo_replicas:integer:=4;
+            Tone_replica:integer:=2);
     Port ( clk : in STD_LOGIC;
            reset : in STD_LOGIC;
            trigger : in STD_LOGIC;
            late : in STD_LOGIC;
            early : in STD_LOGIC;
            phase : in STD_LOGIC;
-           out_temp : out STD_LOGIC;
+           timer_out : out STD_LOGIC;
            ph_mod : out STD_LOGIC);
 end component;
 
-signal clk, reset, late, early,phase,out_temp,ph_mod, trigger:std_logic;
+signal clk, reset, late, early,phase,timer_out,ph_mod, trigger:std_logic;
 
 constant Tclk:time:=10ns;
 
 begin
 
-inst_IM_temporization: IM_temporization
+inst_IM_timer: IM_timer
 generic map(
     Tearly => 8,
     Tlate => 6,
-    Tphase => 4,
-    Tint => 2)
+    Ttwo_replicas => 4,
+    Tone_replica => 2)
 port map(
     clk => clk,
     reset => reset,
     late => late,
     early => early,
     phase => phase,
-    out_temp => out_temp,
+    timer_out => timer_out,
     ph_mod => ph_mod,
     trigger => trigger);
 

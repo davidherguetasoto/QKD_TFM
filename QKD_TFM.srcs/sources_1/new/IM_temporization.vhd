@@ -1,22 +1,22 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity IM_temporization is
+entity IM_timer is
     generic(Tearly:integer:=8;
             Tlate:integer:=6;
-            Tphase:integer:=4;
-            Tint:integer:=2);
+            Ttwo_replicas:integer:=4;
+            Tone_replica:integer:=2);
     Port ( clk : in STD_LOGIC;
            reset : in STD_LOGIC;
            trigger : in STD_LOGIC;
            late : in STD_LOGIC;
            early : in STD_LOGIC;
            phase : in STD_LOGIC;
-           out_temp : out STD_LOGIC;
+           timer_out : out STD_LOGIC;
            ph_mod : out STD_LOGIC);
-end IM_temporization;
+end IM_timer;
 
-architecture Behavioral of IM_temporization is
+architecture Behavioral of IM_timer is
 
 type state is (Idle, TempLate, TempEarly, TempPhase, IntMod, PhaseMod);
 signal present_state, next_state: state;
@@ -68,7 +68,7 @@ begin
             timer<=Tlate;
             next_state<=PhaseMod;
         when IntMod => 
-            timer<=Tint;
+            timer<=Tone_replica;
             case trigger is 
             when '1' =>
                 if late_reg='1' and early_reg='0' and phase_reg='0' then 
@@ -83,7 +83,7 @@ begin
             when others => next_state<=Idle;
             end case;
         when PhaseMod => 
-            timer<=Tphase; 
+            timer<=Ttwo_replicas; 
             case trigger is 
             when '1' =>
                 if late_reg='1' and early_reg='0' and phase_reg='0' then 
@@ -104,22 +104,22 @@ output_updates: process(present_state)
 begin 
     case present_state is 
     when Idle=> 
-        out_temp<='0';
+        timer_out<='0';
         ph_mod<='0';
     when TempLate=> 
-        out_temp<='0';
+        timer_out<='0';
         ph_mod<='0';
     when TempEarly=> 
-        out_temp<='0';
+        timer_out<='0';
         ph_mod<='0';
     when TempPhase=> 
-        out_temp<='0';
+        timer_out<='0';
         ph_mod<='0';
     when IntMod=> 
-        out_temp<='1';
+        timer_out<='1';
         ph_mod<='0';
     when PhaseMod=> 
-        out_temp<='1';
+        timer_out<='1';
         ph_mod<='1';
     end case;
 end process;

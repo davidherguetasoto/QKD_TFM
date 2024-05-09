@@ -11,8 +11,8 @@ component intensity_modulation is
     generic(
         Tearly:integer;
         Tlate:integer;
-        Tphase:integer;
-        Tint:integer);
+        Ttwo_replicas:integer;
+        Tone_replica:integer);
     Port ( clk : in STD_LOGIC;
            reset : in STD_LOGIC;
            sync_pulse : in STD_LOGIC;
@@ -33,8 +33,8 @@ inst_int_mod: intensity_modulation
     generic map(
         Tlate => 6,
         Tearly => 8,
-        Tphase => 4, 
-        Tint => 2)
+        Ttwo_replicas => 4, 
+        Tone_replica => 2)
     port map(
         clk => clk,
         reset => reset,
