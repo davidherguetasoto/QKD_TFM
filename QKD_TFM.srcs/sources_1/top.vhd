@@ -53,8 +53,8 @@ signal sync_pulse_out:std_logic_vector(1 downto 0);
 signal sync_pulse_in:std_logic;
 
 constant Tpulse:integer:=9; --Clock cycles until next light pulse
-constant Tearly:integer:=8; --Delay in clock cycles - 2 bewteen the signal that generates the pulse and the late replica at the second IM.  
-constant Tlate:integer:=6;  --Delay in clock cycles - 2 bewteen the signal that generates the pulse and the early replica at the second IM.
+constant Tearly:integer:=8; --Delay in clock cycles - 1 bewteen the signal that generates the pulse and the late replica at the second IM.  
+constant Tlate:integer:=6;  --Delay in clock cycles - 1 bewteen the signal that generates the pulse and the early replica at the second IM.
 constant Ttwo_replicas:integer:=4; --Clock cycles that the signal for the second intensity mod. must keep active in order to phase mod. 
 constant Tone_replica:integer:=2;   --Clock cycles that the signal for the second intensity mod. must keep active in order to int mod.
 constant Tphase_mod:integer:=9; --Delay in clock cycles - 2 between the signal that generates the pulse and the early replica at the PM
