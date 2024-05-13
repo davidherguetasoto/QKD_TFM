@@ -48,9 +48,9 @@ end process;
 
 reset<='0', '1' after 3*Tclk;
 
-early<='0';
+early<='1';
 late<='0';
-phase<='1';
+phase<='0';
 
 process
 begin
