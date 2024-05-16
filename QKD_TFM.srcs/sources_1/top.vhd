@@ -96,6 +96,6 @@ port map(
     pm_out => pm_out);
     
 pulse_out<=sync_pulse_out;
-sync_pulse_in<=sync_pulse_out(0) or sync_pulse_out(1);
+sync_pulse_in<=sync_pulse_out(0);
 
 end Structural;

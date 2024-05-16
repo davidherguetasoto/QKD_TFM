@@ -12,14 +12,18 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="900.001 ns"></ZoomEndTime>
-      <Cursor1Time time="378.296 ns"></Cursor1Time>
+      <ZoomEndTime time="300.001 ns"></ZoomEndTime>
+      <Cursor1Time time="300.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="189"></NameColumnWidth>
+      <NameColumnWidth column_width="179"></NameColumnWidth>
       <ValueColumnWidth column_width="72"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="6" />
+   <wave_markers>
+      <marker time="220000" label="" />
+      <marker time="200000" label="" />
+   </wave_markers>
    <wvobject fp_name="/basys3_tb/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -48,21 +52,54 @@
       <obj_property name="label">top</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/basys3_tb/inst_basys3/inst_top/pulse_out" type="array">
+         <obj_property name="ElementShortName">pulse_out[1:0]</obj_property>
+         <obj_property name="ObjectShortName">pulse_out[1:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/basys3_tb/inst_basys3/inst_top/im_out" type="array">
+         <obj_property name="ElementShortName">im_out[1:0]</obj_property>
+         <obj_property name="ObjectShortName">im_out[1:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/basys3_tb/inst_basys3/inst_top/pm_out" type="array">
+         <obj_property name="ElementShortName">pm_out[1:0]</obj_property>
+         <obj_property name="ObjectShortName">pm_out[1:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/basys3_tb/inst_basys3/inst_top/early" type="logic">
+         <obj_property name="ElementShortName">early</obj_property>
+         <obj_property name="ObjectShortName">early</obj_property>
+      </wvobject>
+      <wvobject fp_name="/basys3_tb/inst_basys3/inst_top/late" type="logic">
+         <obj_property name="ElementShortName">late</obj_property>
+         <obj_property name="ObjectShortName">late</obj_property>
+      </wvobject>
+      <wvobject fp_name="/basys3_tb/inst_basys3/inst_top/phase" type="logic">
+         <obj_property name="ElementShortName">phase</obj_property>
+         <obj_property name="ObjectShortName">phase</obj_property>
+      </wvobject>
+      <wvobject fp_name="/basys3_tb/inst_basys3/inst_top/pi_rad" type="logic">
+         <obj_property name="ElementShortName">pi_rad</obj_property>
+         <obj_property name="ObjectShortName">pi_rad</obj_property>
+      </wvobject>
       <wvobject fp_name="group1101" type="group">
          <obj_property name="label">intensity_modulation</obj_property>
          <obj_property name="DisplayName">label</obj_property>
          <wvobject fp_name="group1075" type="group">
             <obj_property name="label">pulse_generation</obj_property>
             <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="isExpanded"></obj_property>
          </wvobject>
          <wvobject fp_name="group1081" type="group">
             <obj_property name="label">timer_select</obj_property>
             <obj_property name="DisplayName">label</obj_property>
-            <wvobject fp_name="/basys3_tb/inst_basys3/inst_top/inst_intensity_modulation/inst_timer_select/present_state" type="logic">
+            <obj_property name="isExpanded"></obj_property>
+            <wvobject fp_name="/basys3_tb/inst_basys3/inst_top/inst_intensity_modulation/inst_timer_select/present_state" type="other">
                <obj_property name="ElementShortName">present_state</obj_property>
                <obj_property name="ObjectShortName">present_state</obj_property>
             </wvobject>
-            <wvobject fp_name="/basys3_tb/inst_basys3/inst_top/inst_intensity_modulation/inst_timer_select/next_state" type="logic">
+            <wvobject fp_name="/basys3_tb/inst_basys3/inst_top/inst_intensity_modulation/inst_timer_select/next_state" type="other">
                <obj_property name="ElementShortName">next_state</obj_property>
                <obj_property name="ObjectShortName">next_state</obj_property>
             </wvobject>
@@ -74,16 +111,18 @@
          <wvobject fp_name="group1107" type="group">
             <obj_property name="label">IM_output_gen</obj_property>
             <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="isExpanded"></obj_property>
          </wvobject>
       </wvobject>
       <wvobject fp_name="group1113" type="group">
          <obj_property name="label">PM_timer_select</obj_property>
          <obj_property name="DisplayName">label</obj_property>
-         <wvobject fp_name="/basys3_tb/inst_basys3/inst_top/inst_phase_modulation/inst_timer_select/present_state" type="logic">
+         <obj_property name="isExpanded"></obj_property>
+         <wvobject fp_name="/basys3_tb/inst_basys3/inst_top/inst_phase_modulation/inst_timer_select/present_state" type="other">
             <obj_property name="ElementShortName">present_state</obj_property>
             <obj_property name="ObjectShortName">present_state</obj_property>
          </wvobject>
-         <wvobject fp_name="/basys3_tb/inst_basys3/inst_top/inst_phase_modulation/inst_timer_select/next_state" type="logic">
+         <wvobject fp_name="/basys3_tb/inst_basys3/inst_top/inst_phase_modulation/inst_timer_select/next_state" type="other">
             <obj_property name="ElementShortName">next_state</obj_property>
             <obj_property name="ObjectShortName">next_state</obj_property>
          </wvobject>
