@@ -10,17 +10,23 @@ architecture testbench of top_tb is
 component top is 
     Port ( clk : in STD_LOGIC;
            reset : in STD_LOGIC;
-           early : in STD_LOGIC;
-           late : in STD_LOGIC;
-           phase : in STD_LOGIC;
-           pi_rad: in std_logic;
+           auto : in std_logic;
+           early_ext : in STD_LOGIC;
+           late_ext : in STD_LOGIC;
+           phase_ext : in STD_LOGIC;
+           pi_rad_ext: in std_logic;
            pulse_out : out STD_LOGIC_VECTOR (1 downto 0);
            im_out : out STD_LOGIC_VECTOR (1 downto 0);
-           pm_out : out STD_LOGIC_VECTOR (1 downto 0));
+           pm_out : out STD_LOGIC_VECTOR (1 downto 0);
+           late_out : out std_logic;
+           early_out : out std_logic;
+           phase_out : out std_logic;
+           pi_rad_out : out std_logic);
 end component;
 
-signal clk,reset,early,late,phase, pi_rad:std_logic;
+signal clk,reset,auto,early,late,phase, pi_rad:std_logic;
 signal im_out,pm_out,pulse_out: std_logic_vector(1 downto 0);
+signal early_out,late_out,phase_out, pi_rad_out:std_logic;
 
 constant Tclk:time:=10ns;
 
@@ -30,13 +36,18 @@ inst_top:top
 port map(
     clk => clk,
     reset => reset,
-    early => early,
-    late => late,
-    phase => phase,
-    pi_rad => pi_rad,
+    auto => auto,
+    early_ext => early,
+    late_ext => late,
+    phase_ext => phase,
+    pi_rad_ext => pi_rad,
     pulse_out => pulse_out,
     im_out => im_out,
-    pm_out => pm_out);
+    pm_out => pm_out,
+    late_out => late_out,
+    early_out => early_out,
+    phase_out => phase_out,
+    pi_rad_out => pi_rad_out);
     
 process 
 begin
@@ -51,6 +62,7 @@ reset<='0', '1' after 3*Tclk;
 early<='1';
 late<='0';
 phase<='0';
+auto<='1';
 
 process
 begin

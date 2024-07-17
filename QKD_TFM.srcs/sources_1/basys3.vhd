@@ -5,23 +5,29 @@ entity basys3 is
     Port ( 
         clk: in std_logic;
         reset: in std_logic;
-        sw: in std_logic_vector(3 downto 0);
-        led: out std_logic_vector(3 downto 0);
-        JA: out std_logic_vector(5 downto 0));   
+        sw: in std_logic_vector(15 downto 0);
+        led: out std_logic_vector(15 downto 0);
+        JA: out std_logic_vector(7 downto 0);
+        JB: out std_logic_vector(7 downto 0)); 
 end basys3;
 
 architecture Structural of basys3 is
 
 component top is
      Port ( clk : in STD_LOGIC;
-           reset : in STD_LOGIC;   
-           early : in STD_LOGIC;   --For leaving the early replica alone in IM
-           late : in STD_LOGIC;    --For leaving the late replica alone in IM
-           phase : in STD_LOGIC;   --Active for phase modulation
-           pi_rad : in std_logic;  --If active, pi rad phase difference between replicas
+           reset : in STD_LOGIC; 
+           auto : in std_logic;    -- If active, base and bit will be selected randomly
+           early_ext : in STD_LOGIC;   --For leaving the early replica alone in IM
+           late_ext : in STD_LOGIC;    --For leaving the late replica alone in IM
+           phase_ext : in STD_LOGIC;   --Active for phase modulation
+           pi_rad_ext : in std_logic;  --If active, pi rad phase difference between replicas
            pulse_out : out STD_LOGIC_VECTOR (1 downto 0);  --Output for the first IM that generates the light pulses
            im_out : out STD_LOGIC_VECTOR (1 downto 0);     --Output for the second IM that modules the intensity of the replicas
-           pm_out : out STD_LOGIC_VECTOR (1 downto 0));    --Output for the phase modulator
+           pm_out : out STD_LOGIC_VECTOR (1 downto 0);    --Output for the phase modulator
+           early_out : out std_logic;
+           late_out : out std_logic;
+           phase_out : out std_logic;
+           pi_rad_out : out std_logic);
 end component;
 
 signal reset_aux:std_logic;
@@ -32,19 +38,25 @@ inst_top: top
 port map(
     clk => clk,
     reset => reset_aux,
-    early => sw(0),
-    late => sw(1),
-    phase => sw(2),
-    pi_rad => sw(3),
+    auto => sw(15),
+    early_ext => sw(0),
+    late_ext => sw(1),
+    phase_ext => sw(2),
+    pi_rad_ext => sw(3),
     pulse_out(0) => JA(0),
     pulse_out(1) => JA(1),
     im_out(0) => JA(2),
     im_out(1) => JA(3),
     pm_out(0) => JA(4),
-    pm_out(1) => JA(5));
+    pm_out(1) => JA(5),
+    early_out => JB(0),
+    late_out => JB(1),
+    phase_out => JB(2),
+    pi_rad_out => JB(3));
     
 led <= sw;
-
+JB(7 downto 4) <= "0000";
+JA(7 downto 6) <= "00";
 reset_aux<= not reset;  
 
 end Structural;

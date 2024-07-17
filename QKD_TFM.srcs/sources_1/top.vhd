@@ -3,14 +3,19 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity top is
     Port ( clk : in STD_LOGIC;
-           reset : in STD_LOGIC;   
-           early : in STD_LOGIC;   --For leaving the early replica alone in IM
-           late : in STD_LOGIC;    --For leaving the late replica alone in IM
-           phase : in STD_LOGIC;   --Active for phase modulation
-           pi_rad : in std_logic;  --If active, pi rad phase difference between replicas
+           reset : in STD_LOGIC; 
+           auto : in STD_LOGIC;    -- If active, base and bit will be selected randomly  
+           early_ext : in STD_LOGIC;   --For leaving the early replica alone in IM
+           late_ext : in STD_LOGIC;    --For leaving the late replica alone in IM
+           phase_ext : in STD_LOGIC;   --Active for phase modulation
+           pi_rad_ext : in std_logic;  --If active, pi rad phase difference between replicas
            pulse_out : out STD_LOGIC_VECTOR (1 downto 0);  --Output for the first IM that generates the light pulses
            im_out : out STD_LOGIC_VECTOR (1 downto 0);     --Output for the second IM that modules the intensity of the replicas
-           pm_out : out STD_LOGIC_VECTOR (1 downto 0));    --Output for the phase modulator
+           pm_out : out STD_LOGIC_VECTOR (1 downto 0);  --Output for the phase modulator
+           late_out :out std_logic;
+           early_out: out std_logic;
+           phase_out: out std_logic;
+           pi_rad_out: out std_logic);   
 end top;
 
 architecture Structural of top is
@@ -49,8 +54,27 @@ component phase_modulation is
            pm_out : out STD_LOGIC_VECTOR (1 downto 0));
 end component;
 
+component mux_8_a_4 is
+    Port ( inputs : in STD_LOGIC_VECTOR (7 downto 0);
+           selector : in STD_LOGIC;
+           outputs : out STD_LOGIC_VECTOR (3 downto 0));
+end component;
+
+component pseudo_rng is
+    Port ( reset : in STD_LOGIC;
+           clk : in STD_LOGIC;
+           enable : in std_logic;
+           late : out std_logic;
+           early : out std_logic;
+           phase : out std_logic;
+           pi_rad : out std_logic);
+      
+end component;
+
 signal sync_pulse_out:std_logic_vector(1 downto 0);
 signal sync_pulse_in:std_logic;
+signal late, early, phase, pi_rad: std_logic;
+signal late_rand, early_rand, phase_rand, pi_rad_rand: std_logic;
 
 constant Tpulse:integer:=9; --Clock cycles until next light pulse
 constant Tearly:integer:=8; --Delay in clock cycles - 1 bewteen the signal that generates the pulse and the late replica at the second IM.  
@@ -95,7 +119,38 @@ port map(
     pi_rad => pi_rad,
     pm_out => pm_out);
     
+inst_mux: mux_8_a_4 
+port map(
+    inputs(7) => late_ext,
+    inputs(6) => early_ext,
+    inputs(5) => phase_ext,
+    inputs(4) => pi_rad_ext,
+    inputs(3) => late_rand,
+    inputs(2) => early_rand,
+    inputs(1) => phase_rand,
+    inputs(0) => pi_rad_rand,
+    outputs(3) => late,
+    outputs(2) => early,
+    outputs(1) => phase,
+    outputs(0) => pi_rad,
+    selector => auto); 
+    
+inst_pseudo_rng: pseudo_rng 
+port map(
+    reset => reset,
+    clk => sync_pulse_in,
+    enable => auto,
+    late => late_rand,
+    early => early_rand,
+    phase => phase_rand,
+    pi_rad => pi_rad_rand);
+
 pulse_out<=sync_pulse_out;
 sync_pulse_in<=sync_pulse_out(0);
+
+early_out<=early;
+late_out<=late;
+phase_out<=phase;
+pi_rad_out<=pi_rad;
 
 end Structural;

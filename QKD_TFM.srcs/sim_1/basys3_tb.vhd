@@ -11,14 +11,16 @@ component basys3 is
     Port ( 
         clk: in std_logic;
         reset: in std_logic;
-        sw: in std_logic_vector(3 downto 0);
-        led: out std_logic_vector(3 downto 0);
-        JA: out std_logic_vector(5 downto 0));   
+        sw: in std_logic_vector(15 downto 0);
+        led: out std_logic_vector(15 downto 0);
+        JA: out std_logic_vector(7 downto 0);
+        JB: out std_logic_vector(7 downto 0));   
 end component;
 
 signal clk,reset:std_logic;
-signal sw,led:std_logic_vector(3 downto 0);
-signal JA:std_logic_vector(5 downto 0);
+signal sw,led:std_logic_vector(15 downto 0);
+signal JA:std_logic_vector(7 downto 0);
+signal JB:std_logic_vector(7 downto 0);
 
 constant Tclk:time:=10ns;
 
@@ -30,7 +32,8 @@ port map(
     reset => reset,
     sw => sw,
     led => led,
-    JA => JA);
+    JA => JA,
+    JB => JB);
     
 process
 begin 
@@ -42,6 +45,8 @@ end process;
 
 reset<= '1', '0' after 3*Tclk;
 
-sw<="0001";
+sw(3 downto 0)<="0001"; --Base and bit manually selected
+sw(15)<='1'; --Manual or automatic mode
+sw(14 downto 4)<= (others => '0');
 
 end testbench;
