@@ -24,10 +24,8 @@ component top is
            pulse_out : out STD_LOGIC_VECTOR (1 downto 0);  --Output for the first IM that generates the light pulses
            im_out : out STD_LOGIC_VECTOR (1 downto 0);     --Output for the second IM that modules the intensity of the replicas
            pm_out : out STD_LOGIC_VECTOR (1 downto 0);    --Output for the phase modulator
-           early_out : out std_logic;
-           late_out : out std_logic;
-           phase_out : out std_logic;
-           pi_rad_out : out std_logic);
+           phase_base: out std_logic;
+           time_base: out std_logic);
 end component;
 
 signal reset_aux:std_logic;
@@ -49,14 +47,16 @@ port map(
     im_out(1) => JA(3),
     pm_out(0) => JA(4),
     pm_out(1) => JA(5),
-    early_out => JB(0),
-    late_out => JB(1),
-    phase_out => JB(2),
-    pi_rad_out => JB(3));
+    time_base => JB(0),
+    phase_base => JB(1));
     
-led <= sw;
-JB(7 downto 4) <= "0000";
+led(3 downto 0) <= sw(3 downto 0);
+led(15) <= sw(15);
+led(14 downto 4)<= (others => '0');
+
+JB(7 downto 2) <= "000000";
 JA(7 downto 6) <= "00";
+
 reset_aux<= not reset;  
 
 end Structural;

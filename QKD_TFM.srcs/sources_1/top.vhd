@@ -11,11 +11,9 @@ entity top is
            pi_rad_ext : in std_logic;  --If active, pi rad phase difference between replicas
            pulse_out : out STD_LOGIC_VECTOR (1 downto 0);  --Output for the first IM that generates the light pulses
            im_out : out STD_LOGIC_VECTOR (1 downto 0);     --Output for the second IM that modules the intensity of the replicas
-           pm_out : out STD_LOGIC_VECTOR (1 downto 0);  --Output for the phase modulator
-           late_out :out std_logic;
-           early_out: out std_logic;
-           phase_out: out std_logic;
-           pi_rad_out: out std_logic);   
+           pm_out : out STD_LOGIC_VECTOR (1 downto 0);  --Output for the phase modulator        
+           phase_base: out std_logic;  --If active, phase codification was chosen
+           time_base: out std_logic);  --If active, time codification was chosen
 end top;
 
 architecture Structural of top is
@@ -148,9 +146,7 @@ port map(
 pulse_out<=sync_pulse_out;
 sync_pulse_in<=sync_pulse_out(0);
 
-early_out<=early;
-late_out<=late;
-phase_out<=phase;
-pi_rad_out<=pi_rad;
+phase_base <= phase;
+time_base <= early or late;
 
 end Structural;

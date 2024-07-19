@@ -18,15 +18,13 @@ component top is
            pulse_out : out STD_LOGIC_VECTOR (1 downto 0);
            im_out : out STD_LOGIC_VECTOR (1 downto 0);
            pm_out : out STD_LOGIC_VECTOR (1 downto 0);
-           late_out : out std_logic;
-           early_out : out std_logic;
-           phase_out : out std_logic;
-           pi_rad_out : out std_logic);
+           phase_base: out std_logic;
+           time_base: out std_logic);
 end component;
 
 signal clk,reset,auto,early,late,phase, pi_rad:std_logic;
 signal im_out,pm_out,pulse_out: std_logic_vector(1 downto 0);
-signal early_out,late_out,phase_out, pi_rad_out:std_logic;
+signal time_base, phase_base:std_logic;
 
 constant Tclk:time:=10ns;
 
@@ -44,10 +42,8 @@ port map(
     pulse_out => pulse_out,
     im_out => im_out,
     pm_out => pm_out,
-    late_out => late_out,
-    early_out => early_out,
-    phase_out => phase_out,
-    pi_rad_out => pi_rad_out);
+    time_base => time_base,
+    phase_base => phase_base);
     
 process 
 begin

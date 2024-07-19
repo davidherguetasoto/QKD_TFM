@@ -47,6 +47,7 @@ reset<= '1', '0' after 3*Tclk;
 
 sw(3 downto 0)<="0001"; --Base and bit manually selected
 sw(15)<='1'; --Manual or automatic mode
-sw(14 downto 4)<= (others => '0');
+sw(14 downto 6)<= (others => '0');
+sw(5 downto 4) <= "11";
 
 end testbench;
