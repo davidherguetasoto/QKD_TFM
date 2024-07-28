@@ -45,8 +45,8 @@ end process;
 
 reset<= '1', '0' after 3*Tclk;
 
-sw(3 downto 0)<="0001"; --Base and bit manually selected
-sw(15)<='1'; --Manual or automatic mode
+sw(3 downto 0)<="0000"; --Base and bit manually selected
+sw(15)<='1', '0' after 300ns, '1' after 500ns; --Manual or automatic mode
 sw(14 downto 6)<= (others => '0');
 sw(5 downto 4) <= "11";
 

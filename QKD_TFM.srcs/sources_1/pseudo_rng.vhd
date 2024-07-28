@@ -26,7 +26,7 @@ begin
 process(clk, reset)
 begin
     if reset='0' then 
-        registers_rng<=zero;
+        registers_rng<=seed;
     elsif rising_edge(clk) then
         if enable = '1' then 
             if flag_bloq = '1' then
@@ -34,8 +34,6 @@ begin
             else
                 registers_rng<= feedback & registers_rng(63 downto 1);
             end if;
-        else 
-            registers_rng <= zero;
         end if;
     end if;
 end process;
@@ -45,9 +43,9 @@ flag_bloq <= '1' when registers_rng = zero
 feedback <= registers_rng(1) xor registers_rng(4) xor registers_rng(3) xor registers_rng(0);
 
 xor_out <= registers_rng(14) xor registers_rng(33);
-late <= xor_out and registers_rng(14);
-early <= xor_out and registers_rng(33);
-phase <= not xor_out;
-pi_rad <= registers_rng(14) and registers_rng(33);
+late <= xor_out and registers_rng(14) and enable;
+early <= xor_out and registers_rng(33) and enable;
+phase <= enable and (not xor_out);
+pi_rad <= registers_rng(14) and registers_rng(33) and enable;
 
 end RTL;
