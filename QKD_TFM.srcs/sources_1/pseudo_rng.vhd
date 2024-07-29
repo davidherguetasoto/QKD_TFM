@@ -13,7 +13,7 @@ end pseudo_rng;
 
 architecture RTL of pseudo_rng is
 
-signal registers_rng : std_logic_vector(63 downto 0);
+signal reg_rng : std_logic_vector(63 downto 0);
 signal feedback : std_logic;
 signal flag_bloq : std_logic;
 signal xor_out : std_logic;
@@ -26,26 +26,26 @@ begin
 process(clk, reset)
 begin
     if reset='0' then 
-        registers_rng<=seed;
+        reg_rng<=seed;
     elsif rising_edge(clk) then
         if enable = '1' then 
             if flag_bloq = '1' then
-                registers_rng <= seed;
+                reg_rng <= seed;
             else
-                registers_rng<= feedback & registers_rng(63 downto 1);
+                reg_rng<= feedback & reg_rng(63 downto 1);
             end if;
         end if;
     end if;
 end process;
 
-flag_bloq <= '1' when registers_rng = zero 
+flag_bloq <= '1' when reg_rng = zero 
              else '0';
-feedback <= registers_rng(1) xor registers_rng(4) xor registers_rng(3) xor registers_rng(0);
+feedback <= reg_rng(1) xor reg_rng(4) xor reg_rng(3) xor reg_rng(0);
 
-xor_out <= registers_rng(14) xor registers_rng(33);
-late <= xor_out and registers_rng(14) and enable;
-early <= xor_out and registers_rng(33) and enable;
+xor_out <= reg_rng(14) xor reg_rng(33);
+late <= xor_out and reg_rng(14) and enable;
+early <= xor_out and reg_rng(33) and enable;
 phase <= enable and (not xor_out);
-pi_rad <= registers_rng(14) and registers_rng(33) and enable;
+pi_rad <= reg_rng(14) and reg_rng(33) and enable;
 
 end RTL;
